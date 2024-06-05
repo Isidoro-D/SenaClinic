@@ -21,3 +21,12 @@ VALUES
 INSERT INTO tb_dentista (nome, cro, telefone_dentista, tipo_contato)
 VALUES
 ('Ana', '147258SP', 13992321475, 'Celular');
+
+/* 4. Inserir 3 consultas, sendo 1 para o dentista que cuida de Ortodontia e 2 para o dentista cuja especialidade é Geral.
+ O tipo de todas elas será Avaliação. */
+ 
+INSERT INTO tb_consultas (`data`, tipo_consulta, paciente_id, dentista_id)
+VALUES 
+('2024-06-15 15:35:00', 'Avaliação', 13, 3),
+('2024-06-10 10:30:00', 'Avaliação', 15, 4),
+('2024-06-12 08:00:00', 'Avaliação', 18, 4);
