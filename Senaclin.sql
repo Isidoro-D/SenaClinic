@@ -16,11 +16,11 @@ ALTER TABLE tb_pacientes ADD COLUMN tipo_contato VARCHAR(25) NOT NULL;
 CREATE TABLE tb_dentista (
 dentista_id INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR(100) NOT NULL,
-cro INT NOT NULL UNIQUE,
+cro CHAR(8) NOT NULL UNIQUE,
 especialidade VARCHAR(25) DEFAULT 'Geral',
 telefone_dentista CHAR(11) NOT NULL,
 tipo_contato VARCHAR(25) NOT NULL,
-CONSTRAINT chk_especialidade CHECK (especialidade = 'Ortodontia' or especialidade ='Periodontia' or especialidade ='Implantodontia')
+CONSTRAINT chk_especialidade CHECK (especialidade = 'Ortodontia' or especialidade ='Periodontia' or especialidade ='Implantodontia' OR especialidade = 'Geral')
 );
 
 DROP TABLE tb_dentista;
