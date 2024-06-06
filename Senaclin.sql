@@ -96,4 +96,8 @@ SELECT MONTH(`data`) AS 'Mês', COUNT(consulta_id) AS 'Quantidade' FROM tb_consu
 
 /* 13. Criar uma query que traga todos os tipos de consulta, agrupadas pela quantidade. */
 
-SELECT tipo_consulta, COUNT(consulta_id) FROM tb_consultas GROUP BY tipo_consulta
+SELECT tipo_consulta, COUNT(consulta_id) FROM tb_consultas GROUP BY tipo_consulta;
+
+/* 14. Criar uma query que traga o número de pacientes que a clínica possui. */
+
+SELECT COUNT(paciente_id) AS 'Qtd. Pacientes' FROM tb_pacientes;
