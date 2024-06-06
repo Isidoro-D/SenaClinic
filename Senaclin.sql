@@ -67,3 +67,8 @@ UPDATE tb_consultas SET
 tipo_consulta = 'Tratamento',
 observacao = '“Tratamento será realizado em 10 consultas. Prioridade: Moderada. Remédio aplicado: Ponstan, caso sinta dores”'
 WHERE consulta_id = 1;
+
+/* Selecionar nome e telefone de todos os pacientes que residem em Santos, em ordem alfabética; */
+
+SELECT nome_paciente AS 'Pacientes',  telefone_paciente AS 'Contato' FROM tb_pacientes WHERE cidade = 'Santos' ORDER BY nome_paciente ASC;
+
