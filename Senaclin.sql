@@ -37,6 +37,8 @@ FOREIGN KEY (dentista_id)
 REFERENCES tb_dentista(dentista_id)
 );
 
+ALTER TABLE tb_consultas ADD COLUMN observacao VARCHAR(200);    
+
 DROP TABLE tb_consultas;
 
 /* 1. Adicionar à tabela Paciente um novo atributo, chamado Cidade; */
@@ -57,3 +59,11 @@ WHERE dentista_id = 2;
 UPDATE tb_consultas SET 
 `data` = '2024-06-15 12:20:00'
 WHERE consulta_id = 3;
+
+/* 7. Atualizar a consulta do dentista de especialidade ortodontia, mudando o tipo de consulta para Tratamento e inserindo uma observação do dentista com o seguinte texto:
+ “Tratamento será realizado em 10 consultas. Prioridade: Moderada. Remédio aplicado: Ponstan, caso sinta dores” */
+ 
+UPDATE tb_consultas SET 
+tipo_consulta = 'Tratamento',
+observacao = '“Tratamento será realizado em 10 consultas. Prioridade: Moderada. Remédio aplicado: Ponstan, caso sinta dores”'
+WHERE consulta_id = 1;
