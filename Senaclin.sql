@@ -68,7 +68,14 @@ tipo_consulta = 'Tratamento',
 observacao = '“Tratamento será realizado em 10 consultas. Prioridade: Moderada. Remédio aplicado: Ponstan, caso sinta dores”'
 WHERE consulta_id = 1;
 
-/* Selecionar nome e telefone de todos os pacientes que residem em Santos, em ordem alfabética; */
+/* 8. Selecionar nome e telefone de todos os pacientes que residem em Santos, em ordem alfabética */
 
 SELECT nome_paciente AS 'Pacientes',  telefone_paciente AS 'Contato' FROM tb_pacientes WHERE cidade = 'Santos' ORDER BY nome_paciente ASC;
+
+
+/* 9. Selecionar o nome dos dentistas, a datas da consulta, o nome do paciente e seu telefone, APENAS dos dentistas que possuem consultas */
+
+SELECT D.nome AS 'Dentista', C.`data` AS 'Data e Horas', P.nome_paciente AS 'Pacientes', P.telefone_paciente AS 'Contato do Paciente'  FROM tb_dentista AS D 
+INNER JOIN tb_consultas AS C ON D.dentista_id = C.dentista_id
+INNER JOIN tb_pacientes AS P ON P.paciente_id = C.paciente_id;
 
