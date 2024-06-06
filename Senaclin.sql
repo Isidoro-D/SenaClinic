@@ -79,3 +79,7 @@ SELECT D.nome AS 'Dentista', C.`data` AS 'Data e Horas', P.nome_paciente AS 'Pac
 INNER JOIN tb_consultas AS C ON D.dentista_id = C.dentista_id
 INNER JOIN tb_pacientes AS P ON P.paciente_id = C.paciente_id;
 
+/* 10. Selecionar o nome do dentista, a data da consulta e o tipo da consulta, MESMO quando os dentistas não possuam consultas */
+
+SELECT D.nome AS 'Dentista', C.`data` AS 'Data e Horas', C.tipo_consulta AS 'Consulta' FROM tb_dentista AS D 
+LEFT JOIN tb_consultas AS C ON D.dentista_id = C.dentista_id;
