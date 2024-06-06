@@ -57,7 +57,7 @@ WHERE dentista_id = 2;
 /* 6. Atualizar a data e hora de uma consulta marcada com um dentista cuja especialidade é Geral */
 
 UPDATE tb_consultas SET 
-`data` = '2024-06-15 12:20:00'
+`data` = '2024-07-15 12:20:00'
 WHERE consulta_id = 3;
 
 /* 7. Atualizar a consulta do dentista de especialidade ortodontia, mudando o tipo de consulta para Tratamento e inserindo uma observação do dentista com o seguinte texto:
@@ -87,4 +87,9 @@ LEFT JOIN tb_consultas AS C ON D.dentista_id = C.dentista_id;
 /* 11. Criar uma query que exiba a quantidade de dentistas que a clínica possui, agrupando-os por especialidade,
  ordenando pelo nome da especialidade de A-Z. Para isto, você utilizará o comando group by do sql. */
 
-SELECT especialidade, COUNT(dentista_id) FROM tb_dentista GROUP BY especialidade ASC;
+SELECT especialidade AS 'Especialidade', COUNT(dentista_id) AS 'Qtd. Dentista' FROM tb_dentista GROUP BY especialidade ASC;
+
+/* 12. Criar uma query que mostre a quantidade de consultas que a clínica possui em determinado período do ano. 
+Escolher um mês que retorne ao menos uma consulta, e incluir o mês como filtro. */
+
+SELECT MONTH(`data`) AS 'Mês', COUNT(consulta_id) AS 'Quantidade' FROM tb_consultas WHERE MONTH(`data`) = 7;
