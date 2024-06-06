@@ -54,3 +54,6 @@ WHERE dentista_id = 2;
 
 /* 6. Atualizar a data e hora de uma consulta marcada com um dentista cuja especialidade é Geral */
 
+UPDATE tb_consultas SET 
+`data` = '2024-06-15 12:20:00'
+WHERE consulta_id = 3;
