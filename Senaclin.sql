@@ -49,16 +49,8 @@ UPDATE tb_dentista SET
 especialidade = 'Geral',
 telefone_dentista = 1334674858,
 tipo_contato = 'Telefone Fixo'
-WHERE dentista_id = 1;
-
-UPDATE tb_dentista SET 
-especialidade = 'Geral',
-telefone_dentista = 1336984858,
-tipo_contato = 'Telefone Fixo'
 WHERE dentista_id = 2;
 
-UPDATE tb_dentista SET 
-especialidade = 'Geral',
-telefone_dentista = 133465478,
-tipo_contato = 'Telefone Fixo'
-WHERE dentista_id = 3;
+
+/* 6. Atualizar a data e hora de uma consulta marcada com um dentista cuja especialidade é Geral */
+
