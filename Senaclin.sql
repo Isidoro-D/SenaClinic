@@ -42,3 +42,23 @@ DROP TABLE tb_consultas;
 /* 1. Adicionar à tabela Paciente um novo atributo, chamado Cidade; */
 
 ALTER TABLE tb_pacientes ADD COLUMN cidade VARCHAR(25) NOT NULL;
+
+/* 5. Atualizar todos os dados, exceto nome e cro, do dentista que cuida de implantodontia, mudando sua especialidade para Geral; */
+
+UPDATE tb_dentista SET 
+especialidade = 'Geral',
+telefone_dentista = 1334674858,
+tipo_contato = 'Telefone Fixo'
+WHERE dentista_id = 1;
+
+UPDATE tb_dentista SET 
+especialidade = 'Geral',
+telefone_dentista = 1336984858,
+tipo_contato = 'Telefone Fixo'
+WHERE dentista_id = 2;
+
+UPDATE tb_dentista SET 
+especialidade = 'Geral',
+telefone_dentista = 133465478,
+tipo_contato = 'Telefone Fixo'
+WHERE dentista_id = 3;
