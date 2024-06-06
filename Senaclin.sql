@@ -124,3 +124,16 @@ ORDER BY C.`data` ASC;
 CALL ps_consultaimplantodontia('Geral')
 
 DROP PROCEDURE ps_consultaimplantodontia
+
+/* 17. Crie uma view similar ao exercício 13. Execute a view para testar. */
+
+CREATE VIEW vw_qtdsConsultas AS 
+SELECT tipo_consulta, COUNT(consulta_id) FROM tb_consultas GROUP BY tipo_consulta;
+
+SELECT * FROM vw_qtdsconsultas;
+
+/* Criar uma query que traga quantas consultas cada um dos dentistas realizou ao longo de todo o período,
+ordenando as do que atendeu mais pacientes para o que atendeu menos. */
+
+SELECT D.nome AS 'Dentista', COUNT(consulta_id) AS 'Qtd.Consultas' FROM tb_dentista AS D 
+LEFT JOIN tb_consultas AS C ON D.dentista_id = C.dentista_id GROUP BY D.nome ORDER BY COUNT(consulta_id) DESC
