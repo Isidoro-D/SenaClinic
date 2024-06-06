@@ -101,3 +101,26 @@ SELECT tipo_consulta, COUNT(consulta_id) FROM tb_consultas GROUP BY tipo_consult
 /* 14. Criar uma query que traga o número de pacientes que a clínica possui. */
 
 SELECT COUNT(paciente_id) AS 'Qtd. Pacientes' FROM tb_pacientes;
+
+/* 15. Criar uma query que traga todas as consultas da especialidade implantodontia.
+Deve vir na query o nome do dentista, o cro, a data da consulta e o nome do paciente, ordenados da data mais atual para a mais antiga. */
+
+SELECT D.nome AS 'Dentista', D.cro AS 'CRO', C.`data` AS 'Data e Hora', P.nome_paciente AS 'Paciente' FROM tb_dentista AS D 
+INNER JOIN tb_consultas AS C ON D.dentista_id = C.dentista_id
+INNER JOIN tb_pacientes AS P ON P.paciente_id = C.paciente_id
+WHERE especialidade = 'Implantodontia'
+ORDER BY C.`data` ASC
+
+/* 16. Crie uma procedure similar ao exercício 15, porém a especialidade deve ser passada como parâmetro. Execute a procedure para testar. */
+
+CREATE PROCEDURE ps_consultaimplantodontia
+(IN especialidadeBuscada VARCHAR(25))
+SELECT D.nome AS 'Dentista', D.cro AS 'CRO', C.`data` AS 'Data e Hora', P.nome_paciente AS 'Paciente' FROM tb_dentista AS D 
+INNER JOIN tb_consultas AS C ON D.dentista_id = C.dentista_id
+INNER JOIN tb_pacientes AS P ON P.paciente_id = C.paciente_id
+WHERE especialidade = especialidadeBuscada
+ORDER BY C.`data` ASC;
+
+CALL ps_consultaimplantodontia('Geral')
+
+DROP PROCEDURE ps_consultaimplantodontia
