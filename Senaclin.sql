@@ -93,3 +93,7 @@ SELECT especialidade AS 'Especialidade', COUNT(dentista_id) AS 'Qtd. Dentista' F
 Escolher um mês que retorne ao menos uma consulta, e incluir o mês como filtro. */
 
 SELECT MONTH(`data`) AS 'Mês', COUNT(consulta_id) AS 'Quantidade' FROM tb_consultas WHERE MONTH(`data`) = 7;
+
+/* 13. Criar uma query que traga todos os tipos de consulta, agrupadas pela quantidade. */
+
+SELECT tipo_consulta, COUNT(consulta_id) FROM tb_consultas GROUP BY tipo_consulta
