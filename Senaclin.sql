@@ -83,3 +83,8 @@ INNER JOIN tb_pacientes AS P ON P.paciente_id = C.paciente_id;
 
 SELECT D.nome AS 'Dentista', C.`data` AS 'Data e Horas', C.tipo_consulta AS 'Consulta' FROM tb_dentista AS D 
 LEFT JOIN tb_consultas AS C ON D.dentista_id = C.dentista_id;
+
+/* 11. Criar uma query que exiba a quantidade de dentistas que a clínica possui, agrupando-os por especialidade,
+ ordenando pelo nome da especialidade de A-Z. Para isto, você utilizará o comando group by do sql. */
+
+SELECT especialidade, COUNT(dentista_id) FROM tb_dentista GROUP BY especialidade ASC;
